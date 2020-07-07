@@ -1,12 +1,8 @@
 package com.example.manarelsebaay.mvp_rxjava2_retrofit2.Views.Main;
 
-import android.util.Log;
-
 
 import com.example.manarelsebaay.mvp_rxjava2_retrofit2.Data.TopMoviesResponse;
 import com.example.manarelsebaay.mvp_rxjava2_retrofit2.models.MovieModel;
-
-import retrofit2.Response;
 
 
 public class MainViewPresenter implements MainActivityContract.Presenter, MainActivityContract.APIListener {
@@ -37,15 +33,14 @@ public class MainViewPresenter implements MainActivityContract.Presenter, MainAc
 	// ----- Network Listener -----
 
 	@Override
-	public void onSuccess(Response <TopMoviesResponse> response) {
+	public void onSuccess(TopMoviesResponse response) {
 
-		Log.d("mvp", response.body().getResults().size() + "");
 		mView.hideProgressDialog();
-		mView.displayMovieData(response.body().getResults());
+		mView.displayMovieData(response.getResults());
 	}
 
 	@Override
-	public void onError(Response <TopMoviesResponse> response) {
+	public void onError(Throwable response) {
 
 		mView.hideProgressDialog();
 		mView.showMessage("Error Occured.");

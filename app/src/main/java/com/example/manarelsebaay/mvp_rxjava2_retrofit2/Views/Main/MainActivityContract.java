@@ -5,8 +5,6 @@ import com.example.manarelsebaay.mvp_rxjava2_retrofit2.Data.TopMoviesResponse;
 
 import java.util.List;
 
-import retrofit2.Response;
-
 public interface MainActivityContract {
 
 	interface Model {
@@ -34,8 +32,8 @@ public interface MainActivityContract {
 
 	interface APIListener {
 
-		void onSuccess(Response <TopMoviesResponse> response);
-		void onError(Response <TopMoviesResponse> response);
+		void onSuccess(TopMoviesResponse response);
+		void onError(Throwable response);
 		void onFailure(Throwable t);
 
 	}

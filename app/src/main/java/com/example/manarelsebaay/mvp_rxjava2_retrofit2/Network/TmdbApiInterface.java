@@ -14,5 +14,5 @@ import retrofit2.http.QueryMap;
 public interface TmdbApiInterface {
 
 	@GET("/3/discover/movie")
-    Call <TopMoviesResponse> getTopMovies(@QueryMap Map <String, String> options);
+    Observable <TopMoviesResponse> getTopMovies(@QueryMap Map <String, String> options);
 }
